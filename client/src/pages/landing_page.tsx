@@ -91,9 +91,9 @@ const RadialPatternWithRadar = () => {
         {/* Rotating Radar Sweep */}
         <g
           style={{
-            transformOrigin: '200px 300px',
-            transform: 'rotate(-90deg)',
-            animation: 'radarSpin 2s linear infinite',
+            transformOrigin: "200px 300px",
+            transform: "rotate(-90deg)",
+            animation: "radarSpin 2s linear infinite",
           }}
         >
           <path
@@ -133,21 +133,22 @@ const Landing: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center h-screen bg-black text-center p-4">
       {/* Radar Animation */}
-      <h1 className="text-4xl font-bold text-white mb-4">Welcome to the Landing Page</h1>
       <RadialPatternWithRadar />
 
       {/* Content */}
-      <div className="relative z-10">
-        
-        {/* <p className="text-lg text-gray-300 max-w-xl mb-6">
-          This is a dummy landing page. Click below to get started with your journey.
-        </p> */}
-
+      <div className="relative z-10 max-w-2xl">
+        <h1 className="text-5xl font-extrabold text-white mb-6">
+          Benchmark Your Website's Performance
+        </h1>
+        <p className="text-lg text-gray-300 mb-8">
+          Analyze your website's frontend performance. Get actionable insights and optimization tips to improve
+          your site's speed and user experience.
+        </p>
         <button
           onClick={handleGetStarted}
-          className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl shadow-md transition"
+          className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl shadow-lg text-lg font-semibold transition"
         >
-          Get Started ✨ 
+          Get Started 🚀
         </button>
       </div>
     </div>
