@@ -39,7 +39,7 @@ Designed to be fully responsive, minimal-config, and easily extensible to suppor
 - **Real-Time Dashboard**  
   Displays those performance metrics in a clean, responsive UI.  
 - **LLM-Powered Optimization Tips**  
-  Sends the raw metrics to an LLM (via LangChain/OpenAI) and surfaces human-readable, actionable recommendations for speed improvements.  
+  Sends the raw metrics to an LLM (via Llama4) and surfaces human-readable, actionable recommendations for speed improvements.  
 - **Fully Responsive**  
   Tailwind-powered layouts ensure it looks great on mobile, tablet, and desktop.  
 
@@ -53,8 +53,10 @@ npm run dev
 
 ### Backend
 ```bash
-pip install -r requirements.txt
-uvicorn main:app --reload
+npm install
+npm run dev
 ```
 
 ## AI Usage Explanation
+#### Google PageSpeed Insights API :  Retrieves Lighthouse audit data (LCP, FCP, CLS, Total Blocking Time, Speed Index, opportunities, diagnostics).
+#### Groq LLM Client (groq package) :  Sends parsed metrics to a Meta-Llama-4 “scout” model for optimization advices.
