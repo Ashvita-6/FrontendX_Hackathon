@@ -15,7 +15,7 @@ const RadialPatternWithRadar = () => {
   });
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+    <div className="absolute top-0 w-full h-2/3 flex items-center justify-center overflow-hidden">
       <svg
         viewBox="0 0 400 300"
         className="w-full h-full"
@@ -131,22 +131,22 @@ const Landing: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen bg-black text-center p-4">
+    <div className="relative flex flex-col items-center justify-between h-screen bg-black text-center p-4">
       {/* Radar Animation */}
       <RadialPatternWithRadar />
 
       {/* Content */}
-      <div className="relative z-10 max-w-2xl">
-        <h1 className="text-5xl font-extrabold text-white mb-6">
+      <div className="relative z-10 flex flex-col items-center justify-center h-1/3">
+        <h1 className="text-4xl font-extrabold text-white mb-4">
           Benchmark Your Website's Performance
         </h1>
-        <p className="text-lg text-gray-300 mb-8">
-          Analyze your website's frontend performance. Get actionable insights and optimization tips to improve
-          your site's speed and user experience.
+        <p className="text-base text-gray-300 mb-6">
+          Analyze your website's frontend performance. Get actionable insights
+          and optimization tips to improve your site's speed and user experience.
         </p>
         <button
           onClick={handleGetStarted}
-          className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl shadow-lg text-lg font-semibold transition"
+          className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg text-base font-semibold transition"
         >
           Get Started 🚀
         </button>
