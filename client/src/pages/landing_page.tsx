@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 const RadialPatternWithRadar = () => {
   const numLines = 7;
   const numCircles = 5;
-  const trailAngle = 120; // Degrees between main line and trail line
+  const trailAngle = 120;
 
-  // Calculate lines
   const lines = Array.from({ length: numLines }, (_, i) => {
     const lineAngle = (Math.PI * i) / (numLines - 1);
     const x2 = 200 + Math.cos(lineAngle) * 400;
@@ -15,7 +14,7 @@ const RadialPatternWithRadar = () => {
   });
 
   return (
-    <div className="absolute top-0 w-full h-[350px] flex items-center justify-center overflow-hidden">
+    <div className="absolute inset-0 z-0">
       <svg
         viewBox="0 0 400 300"
         className="w-full h-full"
@@ -53,16 +52,9 @@ const RadialPatternWithRadar = () => {
             <stop offset="0%" stopColor="rgb(255, 140, 0)" stopOpacity="0.8" />
             <stop offset="50%" stopColor="rgb(255, 140, 0)" stopOpacity="0" />
           </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
-        {/* Radial Lines */}
+        {/* Lines */}
         {lines.map((line, i) => (
           <line
             key={`line-${i}`}
@@ -76,7 +68,7 @@ const RadialPatternWithRadar = () => {
           />
         ))}
 
-        {/* Semi-circles */}
+        {/* Circles */}
         {Array.from({ length: numCircles }, (_, i) => {
           const radius = ((i + 1) * 300) / numCircles;
           return (
@@ -88,7 +80,7 @@ const RadialPatternWithRadar = () => {
           );
         })}
 
-        {/* Rotating Radar Sweep */}
+        {/* Radar Sweep */}
         <g
           style={{
             transformOrigin: "200px 300px",
@@ -98,9 +90,9 @@ const RadialPatternWithRadar = () => {
         >
           <path
             d={`M 200 300 
-               L 200 0 
-               A 300 300 0 0 0 ${200 - Math.sin(trailAngle * Math.PI / 180) * 300} ${300 - Math.cos(trailAngle * Math.PI / 180) * 300}
-               Z`}
+                 L 200 0 
+                 A 300 300 0 0 0 ${200 - Math.sin(trailAngle * Math.PI / 180) * 300} ${300 - Math.cos(trailAngle * Math.PI / 180) * 300}
+                 Z`}
             stroke="none"
             fill="url(#sweepGradient)"
           />
@@ -109,12 +101,8 @@ const RadialPatternWithRadar = () => {
         <style>
           {`
             @keyframes radarSpin {
-              from {
-                transform: rotate(-90deg);
-              }
-              to {
-                transform: rotate(90deg);
-              }
+              from { transform: rotate(-90deg); }
+              to { transform: rotate(90deg); }
             }
           `}
         </style>
@@ -131,18 +119,17 @@ const Landing: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-between h-screen bg-black text-center p-4">
-      {/* Radar Animation */}
+    <div className="relative w-full h-screen overflow-hidden bg-black text-white">
+      {/* Background radar */}
       <RadialPatternWithRadar />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-1/4">
-        <h1 className="text-4xl font-extrabold text-white mb-4">
+      {/* Foreground content */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">
           Benchmark Your Website's Performance
         </h1>
-        <p className="text-base text-gray-300 mb-6">
-          Analyze your website's frontend performance. Get actionable insights
-          and optimization tips to improve your site's speed and user experience.
+        <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-md">
+          Analyze your website's frontend performance. Get actionable insights and optimization tips to improve your site's speed and user experience.
         </p>
         <button
           onClick={handleGetStarted}
