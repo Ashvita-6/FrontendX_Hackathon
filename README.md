@@ -49,3 +49,12 @@ Designed to be fully responsive, minimal-config, and easily extensible to suppor
 ```bash
 npm install
 npm run dev
+```
+
+### Backend
+```bash
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+## AI Usage Explanation
