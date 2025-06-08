@@ -15,7 +15,7 @@ const RadialPatternWithRadar = () => {
   });
 
   return (
-    <div className="absolute top-0 w-full h-2/3 flex items-center justify-center overflow-hidden">
+    <div className="absolute top-0 w-full h-[350px] flex items-center justify-center overflow-hidden">
       <svg
         viewBox="0 0 400 300"
         className="w-full h-full"
@@ -136,7 +136,7 @@ const Landing: React.FC = () => {
       <RadialPatternWithRadar />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-1/3">
+      <div className="relative z-10 flex flex-col items-center justify-center h-1/4">
         <h1 className="text-4xl font-extrabold text-white mb-4">
           Benchmark Your Website's Performance
         </h1>
