@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import viteLogo from '/vite.svg'
+import Input from './pages/input_page'
+import Output from './pages/output_page';
+import Landing from './pages/landing_page';
+
 import './App.css'
 
 function App() {
@@ -8,26 +13,14 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <Router>
+      <Routes>
+        <Route path="/input" element={<Input />} />
+        <Route path="/output" element={<Output />} />
+        <Route path="/" element={<Landing />} />
+      </Routes>
+    </Router>
+      {/* <Input /> */}
     </>
   )
 }
