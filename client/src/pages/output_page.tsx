@@ -22,7 +22,7 @@ const Output: React.FC = () => {
   const [loadingStatus, setLoadingStatus] = useState<string>("Starting analysis...");
   const [error, setError] = useState<string | null>(null);
 
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+  const apiBaseUrl = "https://frontend-x-backend-gebm.vercel.app/api";
 
   useEffect(() => {
     if (!siteUrl) {
