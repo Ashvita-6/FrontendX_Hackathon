@@ -26,6 +26,7 @@ const Input: React.FC = () => {
         onChange={(e) => setUrl(e.target.value)}
         className="border p-2 w-80 rounded shadow"
       />
+      
       <button
         onClick={handleSearch}
         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
