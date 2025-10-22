@@ -22,7 +22,7 @@ const Output: React.FC = () => {
   const [loadingStatus, setLoadingStatus] = useState<string>("Starting analysis...");
   const [error, setError] = useState<string | null>(null);
 
-  const apiBaseUrl = "https://frontend-x-backend.vercel.app/api";
+  const apiBaseUrl = "http://localhost:3001/api";
 
   useEffect(() => {
     if (!siteUrl) {
